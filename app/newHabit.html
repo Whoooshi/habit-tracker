@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../app/style/main.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="new-habit">
+                <span class="close">
+                    <a href="./index.html">&times;</a>
+                </span>
+                <form name="newHabitForm">
+                    <div id="screen-1" class="newHabitForm-categoryEvaluation d-block">
+                        <label for="habitCategory" class="d-block">Habit category</label>
+                        <select name="habitCategory" id="habitCategory">
+                            <option value="health">Health</option>
+                            <option value="relations">Relations</option>
+                            <option value="work">Work</option>
+                            <option value="finances">Finances</option>
+                            <option value="hobby">Hobby</option>
+                            <option value="pro">Pro</option>
+                        </select>
+                        <label for="trackingMethod" class="d-block">How will evaluate your progress?</label>
+                        <select name="trackingMethod" id="trackingMethod">
+                            <option value="yesNo">With a yes or no</option>
+                            <option value="numericValue">With a numeric value</option>
+                        </select>
+                        <input type="button" id="next-1" class="nextPage" value="next">
+
+                    </div>
+                    <!-- habit evaluation: yes/no -->
+                    <div id="screen-2" class="newHabitForm-habitDefinitionYesNo">
+                        <p>page 2</p>
+                        <input type="button" id="prev-2" class="prevScreen" value="back">
+                        <input type="button" id="next-2" class="nextPage" value="next">
+                    </div>
+                    <!-- habit evaluation: numeric -->
+                    <div id="screen-3" class="newHabitForm-habitDefinitionNumeric">
+                        <p>page 3</p>
+                        <input type="button" id="prev-3" class="prevScreen" value="back">
+                        <input type="button" id="next-3" class="nextPage" value="next">
+                    </div>
+                    <!-- habit frequency -->
+                    <div id="screen-4" class="newHabitForm-habitFrequency">
+                        <p>page 4</p>
+                        <input type="button" id="prev-4" class="prevScreen" value="back">
+                    </div>
+
+
+
+                <!-- <input type="text" name="habitName" placeholder="Habit name"> -->
+                <!-- <input type="submit" value="Add new habit!"> -->
+                </form>
+    </div>
+
+    <script src="./script/app.js"></script>
+    <script src="./script/newHabit.js"></script>
+</body>
+</html>

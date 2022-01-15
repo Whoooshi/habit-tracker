@@ -1,0 +1,27 @@
+/* :root {
+
+} */
+
+.newHabitForm-categoryEvaluation,
+.newHabitForm-habitDefinitionYesNo,
+.newHabitForm-habitDefinitionNumeric,
+.newHabitForm-habitFrequency {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+.closeModal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
