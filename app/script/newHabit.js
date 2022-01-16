@@ -59,9 +59,21 @@ prevBtnsArr.forEach(function(item) {
     });
 })
 
-function myFunction() {
-    let myValue = document.forms['newHabitForm']['habitCategory'];
-    if (myValue.value === 'work') {
-        console.log("robota");
+let myHabits = [];
+
+function addHabit(ev) {
+    ev.preventDefault();
+
+    let habit = {
+        category : document.forms['newHabitForm']['habitCategory'].value,
+        trackingMethod : document.forms['newHabitForm']['trackingMethod'].value
     }
+    myHabits.push(habit);
+    document.forms[0].reset();
+
+    console.warn('added', {myHabits});
 }
+
+document.addEventListener("DOMContentLoaded", ()=> {
+    document.getElementById('submit').addEventListener('click', addHabit);
+})
