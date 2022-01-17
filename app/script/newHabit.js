@@ -44,19 +44,23 @@ function decreaseId() {
 }
 
 nextBtnsArr.forEach(function(item) {
-    item.addEventListener("click", function() {
-        increaseId();
-        dBlockAdd(screenId);
-        dBlockRemove(screenId-1);
-    });
+    if (item) {
+        item.addEventListener("click", function() {
+            increaseId();
+            dBlockAdd(screenId);
+            dBlockRemove(screenId-1);
+        }, false);
+    }
 })
 
 prevBtnsArr.forEach(function(item) {
-    item.addEventListener("click", function() {
-        decreaseId();
-        dBlockRemove(screenId+1);
-        dBlockAdd(screenId);
-    });
+    if (item) {
+        item.addEventListener("click", function() {
+            decreaseId();
+            dBlockRemove(screenId+1);
+            dBlockAdd(screenId);
+        }, false);
+    }
 })
 
 let myHabits = [];
@@ -75,5 +79,8 @@ function addHabit(ev) {
 }
 
 document.addEventListener("DOMContentLoaded", ()=> {
-    document.getElementById('submit').addEventListener('click', addHabit);
+    let el = document.getElementById('submit');
+    if (el) {
+        el.addEventListener('click', addHabit);
+    }
 })
