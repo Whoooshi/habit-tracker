@@ -63,16 +63,19 @@ prevBtnsArr.forEach(function(item) {
     }
 })
 
-let myHabits = [];
-
 function addHabit(ev) {
     ev.preventDefault();
+
+    myHabits = JSON.parse(localStorage.getItem('habits')) || [];
 
     let habit = {
         category : document.forms['newHabitForm']['habitCategory'].value,
         trackingMethod : document.forms['newHabitForm']['trackingMethod'].value
     }
     myHabits.push(habit);
+
+    // localStorage.setItem('habits', JSON.stringify(habit));
+    localStorage.setItem('habits', JSON.stringify(myHabits));
     document.forms[0].reset();
 
     console.warn('added', {myHabits});
