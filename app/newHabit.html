@@ -12,8 +12,12 @@
                 <span class="close">
                     <a href="./index.html">&times;</a>
                 </span>
-                <form name="newHabitForm">
+                <form name="newHabitForm" id="myForm">
                     <div id="screen-1" class="newHabitForm-categoryEvaluation d-block">
+                        <label for="habitName" class="d-block">Habit name</label>
+                        <input type="text" name="habitName">
+                        <label for="habitDescription" class="d-block">Habit description</label>
+                        <textarea name="habitDescriptionYesNo" id="" cols="30" rows="10"></textarea>
                         <label for="habitCategory" class="d-block">Habit category</label>
                         <select name="habitCategory" id="habitCategory">
                             <option value="health">Health</option>
@@ -24,33 +28,35 @@
                             <option value="pro">Pro</option>
                         </select>
                         <label for="trackingMethod" class="d-block">How will evaluate your progress?</label>
-                        <select name="trackingMethod" id="trackingMethod">
-                            <option value="yesNo">With a yes or no</option>
-                            <option value="numericValue">With a numeric value</option>
-                        </select>
-                        <input type="button" id="next-1" class="nextPage" value="next">
+                        <input type="button" name="trackingYesNo" id="next-1-yesNo" class="nextPage" value="With a yes or no">
+                        <input type="button" name="trackingNumeric" id="next-1-numeric" class="nextPage" value="With a numeric value">
 
-                    </div>
-                    <!-- habit evaluation: yes/no -->
-                    <div id="screen-2" class="newHabitForm-habitDefinitionYesNo">
-                        <p>page 2</p>
-                        <input type="button" id="prev-2" class="prevScreen" value="back">
-                        <input type="button" id="next-2" class="nextPage" value="next">
-                    </div>
-                    <!-- habit evaluation: numeric -->
-                    <div id="screen-3" class="newHabitForm-habitDefinitionNumeric">
-                        <p>page 3</p>
-                        <input type="button" id="prev-3" class="prevScreen" value="back">
-                        <input type="button" id="next-3" class="nextPage" value="next">
                     </div>
                     <!-- habit frequency -->
-                    <div id="screen-4" class="newHabitForm-habitFrequency">
-                        <p>page 4</p>
-                        <input type="button" id="prev-4" class="prevScreen" value="back">
+                    <div id="screen-2" class="newHabitForm-habitFrequency">
+                        <div class="newHabitForm-numericDetails">
+                            <label for="amount" class="d-block"></label>
+                            <select name="amount" id="amountDef">
+                                <option value="health">At least</option>
+                                <option value="relations">Less than</option>
+                                <option value="work">Exactly</option>
+                        </select>
+                        <label for="goal" class="d-block">Goal</label>
+                        <input type="text" name="goal" placeholder="1">
+                        </div>
+                        <label for="everyDay" class="d-block">Every day</label>
+                        <input type="radio" name="everyDay">
+                        <label for="someDays" class="d-block">Some days of week</label>
+                        <input type="radio" name="someDays">
+                        <label for="specificDay" class="d-block">Specific day of the month</label>
+                        <input type="radio" name="specificDay">
+                        <label for="sometimes" class="d-block">Some time per period</label>
+                        <input type="radio" name="sometimes">
+                        <label for="repeat" class="d-block">Repeat</label>
+                        <input type="radio" name="repeat">
+                        <input type="button" id="prev-2" class="prevScreen" value="back">
                         <input type="button" id="submit" value="Add new Habit!">
                     </div>
-
-
 
                 <!-- <input type="text" name="habitName" placeholder="Habit name"> -->
                 <!-- <input type="submit" value="Add new habit!"> -->

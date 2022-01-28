@@ -3,8 +3,7 @@
 } */
 
 .newHabitForm-categoryEvaluation,
-.newHabitForm-habitDefinitionYesNo,
-.newHabitForm-habitDefinitionNumeric,
+.newHabitForm-numericDetails,
 .newHabitForm-habitFrequency {
     display: none;
 }
