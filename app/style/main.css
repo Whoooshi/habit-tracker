@@ -4,8 +4,15 @@
 
 .newHabitForm-categoryEvaluation,
 .newHabitForm-numericDetails,
-.newHabitForm-habitFrequency {
+.newHabitForm-habitFrequency,
+.newHabitForm-days,
+.newHabitForm-sometimes,
+.newHabitForm-repeat {
     display: none;
+}
+
+.d-inlineBlock {
+    display: inline-block;
 }
 
 .d-block {

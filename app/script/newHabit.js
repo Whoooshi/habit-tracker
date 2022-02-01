@@ -87,7 +87,91 @@ const TrackingMethodEnum = {
     Numeric : 'numeric'
 };
 
+/* ------------------ */
+/* Defining frequency */
+/* ------------------ */
+
 let habitFrequency = '';
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('input[name="frequency"]')) {
+        document.querySelectorAll('input[name="frequency"]').forEach((elem) => {
+          elem.addEventListener("change", function(event) {
+            let item = event.target.value;
+            let daysDiv = document.getElementById('days')
+            let sometimesDiv = document.querySelector('.newHabitForm-sometimes');
+            let repeatDiv = document.querySelector('.newHabitForm-repeat');
+
+            let choice = event.target.value;
+
+            switch (choice) {
+                case "everyDay":
+                    console.log("codziennie");
+                    daysDiv.classList.remove('d-block');
+                    sometimesDiv.classList.remove('d-block');
+                    repeatDiv.classList.remove('d-block');
+                    resetSpecificDayDiv();
+                    break;
+                case "someDays":
+                    console.log("jakiś dzień w tygodniu");
+                    sometimesDiv.classList.remove('d-block');
+                    repeatDiv.classList.remove('d-block');
+                    daysDiv.classList.add('d-block');
+                    resetSpecificDayDiv();
+                    break;
+                case "specificDay":
+                    console.log("jakiś dzień");
+                    daysDiv.classList.remove('d-block');
+                    sometimesDiv.classList.remove('d-block');
+                    repeatDiv.classList.remove('d-block');
+                    specificDay();
+                    break;
+                case "sometimes":
+                    console.log("co jakiś czas");
+                    daysDiv.classList.remove('d-block');
+                    repeatDiv.classList.remove('d-block');
+                    sometimesDiv.classList.add('d-block');
+                    resetSpecificDayDiv();
+                    break;
+                case "repeat":
+                    console.log("powtorz");
+                    daysDiv.classList.remove('d-block');
+                    sometimesDiv.classList.remove('d-block');
+                    repeatDiv.classList.add('d-block');
+                    resetSpecificDayDiv();
+                    break;
+                default:
+                    break;
+            }
+
+            habitFrequency = item;
+          });
+        });
+      }
+})
+
+let specificDayDiv = document.querySelector('.newHabitForm-specificDay');
+
+function specificDay() {
+    let dayBtn = [];
+
+    for (let i = 0; i < 31; i++) {
+        let btn = document.createElement('button');
+        btn.id = `day-${i+1}`;
+        btn.innerText = i+1;
+        dayBtn.push(btn);
+    }
+
+    for (let j = 0; j < 31; j++) {
+        specificDayDiv.appendChild(dayBtn[j]);
+    }
+}
+
+function resetSpecificDayDiv() {
+    specificDayDiv.innerHTML = '';
+}
+
+
 
 function addHabit(ev) {
     ev.preventDefault();
@@ -100,7 +184,8 @@ function addHabit(ev) {
         category : document.forms['newHabitForm']['habitCategory'].value,
         trackingMethod : trackingMethod,
         habitName : document.forms['newHabitForm']['habitName'].value,
-        habitDescription : document.forms['newHabitForm']['habitDescriptionYesNo'].value
+        description : document.forms['newHabitForm']['habitDescription'].value,
+        frequency : habitFrequency
     }
 
     myHabits.push(habit);
