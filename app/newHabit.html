@@ -36,13 +36,14 @@
                     <div id="screen-2" class="newHabitForm-habitFrequency">
                         <div class="newHabitForm-numericDetails">
                             <label for="amount" class="d-block"></label>
-                            <select name="amount" id="amountDef">
-                                <option value="health">At least</option>
-                                <option value="relations">Less than</option>
-                                <option value="work">Exactly</option>
+                            <select name="amount" id="newHabitForm-numeric-period">
+                                <option value="atLest">At least</option>
+                                <option value="lessThan">Less than</option>
+                                <option value="exactly">Exactly</option>
                         </select>
                         <label for="goal" class="d-block">Goal</label>
-                        <input type="text" name="goal">
+                        <input type="text" name="goal"
+                       id="newHabitForm-numeric-amount" placeholder="1">
                         </div>
                         <label for="frequency" class="d-block">Every day</label>
                         <input type="radio" name="frequency" value="everyDay">
@@ -62,7 +63,7 @@
                             <input type="checkbox" name="day" value="Sat">
                             <label for="day">Saturday</label>
                             <input type="checkbox" name="day" value="Sun">
-                            <label for="day">Sundday</label>
+                            <label for="day">Sunday</label>
                         </div>
                         <label for="frequency" class="d-block">Specific day of the month</label>
                         <input type="radio" name="frequency" value="specificDay">
@@ -72,9 +73,9 @@
                         <label for="frequency" class="d-block">Some time per period</label>
                         <input type="radio" name="frequency" value="sometimes">
                         <div class="newHabitForm-sometimes">
-                            <input type="text" placeholder="1" class="d-inlineBlock">
+                            <input type="text" id="newHabitForm-sometimes-amount" placeholder="1" class="d-inlineBlock">
                             <p class="d-inlineBlock"> times per </p>
-                            <select name="" id="" class="d-inlineBlock">
+                            <select name="" id="newHabitForm-sometimes-period" class="d-inlineBlock">
                                 <option value="week">WEEK</option>
                                 <option value="month">MONTH</option>
                             </select>
@@ -83,7 +84,8 @@
                         <input type="radio" name="frequency" value="repeat">
                         <div class="newHabitForm-repeat">
                             <p class="d-inlineBlock">Every </p>
-                            <input type="text" placeholder="1" class="d-inlineBlock">
+                            <input type="text" 
+                            id="newHabitForm-repeat-amount" placeholder="1" class="d-inlineBlock">
                             <p class="d-inlineBlock"> days</p>
                         </div>
                         <input type="button" id="prev-2" class="prevScreen" value="back">
