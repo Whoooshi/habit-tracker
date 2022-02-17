@@ -1,6 +1,8 @@
 /* ---------- */
 /* Navigation */
 /* ---------- */
+let form = document.getElementById('');
+
 let prevBtnsArr = [
     document.getElementById('prev-2'),
 ];
@@ -285,11 +287,11 @@ function addHabit(ev) {
     myHabits = JSON.parse(localStorage.getItem('habits')) || [];
 
     habit = {
-        category : document.forms['newHabitForm']['habitCategory'].value,
+        category : document.forms['newHabit']['habitCategory'].value,
         trackingMethod : trackingMethod,
         trackingMethodDetails : trackingMethodDetails(),
-        habitName : document.forms['newHabitForm']['habitName'].value,
-        description : document.forms['newHabitForm']['habitDescription'].value,
+        habitName : document.forms['newHabit']['habitName'].value,
+        description : document.forms['newHabit']['habitDescription'].value,
         frequency : habitFrequency,
         frequencyDetails : frequencyDays(habitFrequency)
     }
