@@ -9,93 +9,100 @@
 </head>
 <body>
     <div class="habit">
-                <span class="close">
-                    <a href="./index.html">&times;</a>
-                </span>
-                <form name="newHabit" class="form">
-                    <div id="screen-1" class="newHabitForm-categoryEvaluation d-block">
-                        <label for="habitName" class="d-block">Habit name</label>
-                        <input type="text" name="habitName">
-                        <label for="habitDescription" class="d-block">Habit description</label>
-                        <textarea name="habitDescription" id="" cols="30" rows="10"></textarea>
-                        <label for="habitCategory" class="d-block">Habit category</label>
-                        <select name="habitCategory" id="habitCategory">
-                            <option value="health">Health</option>
-                            <option value="relations">Relations</option>
-                            <option value="work">Work</option>
-                            <option value="finances">Finances</option>
-                            <option value="hobby">Hobby</option>
-                            <option value="pro">Pro</option>
-                        </select>
-                        <label for="trackingMethod" class="d-block">How will evaluate your progress?</label>
-                        <input type="button" name="trackingYesNo" id="next-1-yesNo" class="nextPage" value="With a yes or no">
-                        <input type="button" name="trackingNumeric" id="next-1-numeric" class="nextPage" value="With a numeric value">
-
+        <span class="close">
+            <a href="./index.html">&times;</a>
+        </span>
+        <form name="newHabit" class="form">
+            <div id="screen-1" class="mainContainer d-block">
+                <label for="habitName" class="label">Habit name</label>
+                <input type="text" class="input" name="habitName">
+                <label for="habitDescription" class="label">Habit description</label>
+                <textarea name="habitDescription" class="input input--textArea" cols="30" rows="10"></textarea>
+                <label for="habitCategory" class="label">Habit category</label>
+                <select name="habitCategory" id="habitCategory">
+                    <option value="health">Health</option>
+                    <option value="relations">Relations</option>
+                    <option value="work">Work</option>
+                    <option value="finances">Finances</option>
+                    <option value="hobby">Hobby</option>
+                    <option value="pro">Pro</option>
+                </select>
+                <div class="mainContainer__buttons">
+                    <label for="tracking" class="label">How will you evaluate your progress?</label>
+                    <input type="button" name="tracking" id="yesNo" class="btn" value="With a yes or no">
+                    <input type="button" name="tracking" id="numeric" class="btn" value="With a numeric value">
+                </div>
+            </div>
+            <div id="screen-2" class="mainContainer">
+                <div class="frequencyContainer frequencyContainer__numeric">
+                    <label for="howOften" class="label"></label>
+                    <select name="howOften" id="numericHowOften">
+                        <option value="atLeast">At least</option>
+                        <option value="lessThan">Less than</option>
+                        <option value="exactly">Exactly</option>
+                    </select>
+                    <label for="howMany" class="label">Goal</label>
+                    <input type="text" name="howMany" class="input" id="numericHowMany" placeholder="1">
+                </div>
+                <div class="frequencyContainer frequencyContainer__everyDay">
+                    <label for="frequency" class="label">Every day</label>
+                    <input type="radio" name="frequency" value="everyDay">
+                </div>
+                <div class="frequencyContainer frequencyContainer__someDays">
+                    <label for="frequency" class="label">Some days of week</label>
+                    <input type="radio" name="frequency" value="someDays">
+                    <div class="frequencyContainer__details" id="weekDays">
+                        <input type="checkbox" name="day" value="Mon">
+                        <label for="day">Monday</label>
+                        <input type="checkbox" name="day" value="Tue">
+                        <label for="day">Tuesday</label>
+                        <input type="checkbox" name="day" value="Wed">
+                        <label for="day">Wednesday</label>
+                        <input type="checkbox" name="day" value="Thu">
+                        <label for="day">Thursday</label>
+                        <input type="checkbox" name="day" value="Fri">
+                        <label for="day">Friday</label>
+                        <input type="checkbox" name="day" value="Sat">
+                        <label for="day">Saturday</label>
+                        <input type="checkbox" name="day" value="Sun">
+                        <label for="day">Sunday</label>
                     </div>
-                    <!-- habit frequency -->
-                    <div id="screen-2" class="newHabitForm-habitFrequency">
-                        <div class="newHabitForm-numericDetails">
-                            <label for="amount" class="d-block"></label>
-                            <select name="amount" id="newHabitForm-numeric-period">
-                                <option value="atLest">At least</option>
-                                <option value="lessThan">Less than</option>
-                                <option value="exactly">Exactly</option>
+                </div>
+                <div class="frequencyContainer frequencyContainer__specificDay">
+                    <label for="frequency" class="label">Specific day of the month</label>
+                    <input type="radio" name="frequency" value="specificDay">
+                    <div id="specificDayBtnsContainer" class="frequencyContainer__details"></div>
+                    <!--  -->
+                    <!--  -->
+                </div>
+                <div class="frequencyContainer frequencyContainer__someTime">
+                    <label for="frequency" class="label">Some time per period</label>
+                    <input type="radio" name="frequency" value="sometimes">
+                    <div id="sometimesDetailsContainer" class="frequencyContainer__details">
+                        <input type="text" id="sometimesHowMany" class="input d-inlineBlock" placeholder="1">
+                        <p class="d-inlineBlock"> times per </p>
+                        <select name="" id="sometimesHowOften" class="d-inlineBlock">
+                            <option value="week">WEEK</option>
+                            <option value="month">MONTH</option>
                         </select>
-                        <label for="goal" class="d-block">Goal</label>
-                        <input type="text" name="goal"
-                       id="newHabitForm-numeric-amount" placeholder="1">
-                        </div>
-                        <label for="frequency" class="d-block">Every day</label>
-                        <input type="radio" name="frequency" value="everyDay">
-                        <label for="frequency" class="d-block">Some days of week</label>
-                        <input type="radio" name="frequency" value="someDays">
-                        <div class="newHabitForm-days" id="days">
-                            <input type="checkbox" name="day" value="Mon">
-                            <label for="day">Monday</label>
-                            <input type="checkbox" name="day" value="Tue">
-                            <label for="day">Tuesday</label>
-                            <input type="checkbox" name="day" value="Wed">
-                            <label for="day">Wednesday</label>
-                            <input type="checkbox" name="day" value="Thu">
-                            <label for="day">Thursday</label>
-                            <input type="checkbox" name="day" value="Fri">
-                            <label for="day">Friday</label>
-                            <input type="checkbox" name="day" value="Sat">
-                            <label for="day">Saturday</label>
-                            <input type="checkbox" name="day" value="Sun">
-                            <label for="day">Sunday</label>
-                        </div>
-                        <label for="frequency" class="d-block">Specific day of the month</label>
-                        <input type="radio" name="frequency" value="specificDay">
-                        <div class="newHabitForm-specificDay">
-                            
-                        </div>
-                        <label for="frequency" class="d-block">Some time per period</label>
-                        <input type="radio" name="frequency" value="sometimes">
-                        <div class="newHabitForm-sometimes">
-                            <input type="text" id="newHabitForm-sometimes-amount" placeholder="1" class="d-inlineBlock">
-                            <p class="d-inlineBlock"> times per </p>
-                            <select name="" id="newHabitForm-sometimes-period" class="d-inlineBlock">
-                                <option value="week">WEEK</option>
-                                <option value="month">MONTH</option>
-                            </select>
-                        </div>
-                        <label for="frequency" class="d-block">Repeat</label>
-                        <input type="radio" name="frequency" value="repeat">
-                        <div class="newHabitForm-repeat">
-                            <p class="d-inlineBlock">Every </p>
-                            <input type="text"
-                            id="newHabitForm-repeat-amount" placeholder="1" class="d-inlineBlock">
-                            <p class="d-inlineBlock"> days</p>
-                        </div>
-                        <input type="button" id="prev-2" class="prevScreen" value="back">
-                        <input type="button" id="submit" value="Add new Habit!">
                     </div>
-
-                <!-- <input type="text" name="habitName" placeholder="Habit name"> -->
-                <!-- <input type="submit" value="Add new habit!"> -->
-                </form>
-    </div>
+                </div>
+                <div class="frequencyContainer frequencyContainer__repeat">
+                    <label for="frequency" class="label">Repeat</label>
+                    <input type="radio" name="frequency" value="repeat">
+                    <div id="repeatDetailsContainer" class="frequencyContainer__details">
+                        <p class="paragraph d-inlineBlock">Every </p>
+                        <input type="text" id="repeatHowMany" class="input d-inlineBlock" placeholder="1">
+                        <p class="paragraph d-inlineBlock"> days</p>
+                    </div>
+                </div>
+                <div class="mainContainer__buttons">
+                    <input type="button" id="prev-2" class="btn" value="back">
+                    <input type="button" id="submit" class="btn btn--main" value="Add new Habit!">
+                </div>
+            </div>
+        </form>
+</div>
 
     <script src="./script/newHabit.js"></script>
     <script src="./script/app.js"></script>

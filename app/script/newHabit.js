@@ -1,8 +1,6 @@
 /* ---------- */
 /* Navigation */
 /* ---------- */
-let form = document.getElementById('');
-
 let prevBtnsArr = [
     document.getElementById('prev-2'),
 ];
@@ -38,17 +36,6 @@ prevBtnsArr.forEach(function(item) {
                 dBlockRemove(screenId+1);
                 dBlockAdd(screenId);
                 numericDetailsDiv.classList.remove('d-block');
-            } else if (screenId == '3') {
-                if (trackingMethod = TrackingMethodEnum.Numeric) {
-                    decreaseId();
-                    dBlockRemove(screenId+1);
-                    dBlockAdd(screenId);
-                } else if (trackingMethod = TrackingMethodEnum.YesNo) {
-                    decreaseId();
-                    decreaseId();
-                    dBlockRemove(screenId+2);
-                    dBlockAdd(screenId);
-                }
             } else {
                 decreaseId();
                 dBlockRemove(screenId+1);
@@ -59,9 +46,9 @@ prevBtnsArr.forEach(function(item) {
 })
 
 document.addEventListener("DOMContentLoaded", ()=> {
-    let yesNoNextbtn = document.getElementById('next-1-yesNo');
-    if (yesNoNextbtn) {
-        yesNoNextbtn.addEventListener("click", function() {
+    const yesNoBtn = document.getElementById('yesNo');
+    if (yesNoBtn) {
+        yesNoBtn.addEventListener("click", function() {
             increaseId();
             dBlockAdd(screenId);
             dBlockRemove(screenId-1);
@@ -69,12 +56,12 @@ document.addEventListener("DOMContentLoaded", ()=> {
     }
 })
 
-const numericDetailsDiv = document.querySelector('.newHabitForm-numericDetails');
+const numericDetailsDiv = document.querySelector('.frequencyContainer__numeric');
 
 document.addEventListener("DOMContentLoaded", ()=> {
-    let numericNextbtn = document.getElementById('next-1-numeric');
-    if (numericNextbtn) {
-        numericNextbtn.addEventListener("click", function() {
+    const numericBtn = document.getElementById('numeric');
+    if (numericBtn) {
+        numericBtn.addEventListener("click", function() {
             increaseId();
             dBlockAdd(screenId);
             dBlockRemove(screenId-1);
@@ -84,7 +71,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
 })
 
 document.addEventListener('DOMContentLoaded', function() {
-    let yesNoBtn = document.getElementById('next-1-yesNo');
+    let yesNoBtn = document.getElementById('yesNo');
     if (yesNoBtn) {
         yesNoBtn.addEventListener('click', function() {
             trackingMethod = TrackingMethodEnum.YesNo;
@@ -93,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 document.addEventListener('DOMContentLoaded', function() {
-    let numericBtn = document.getElementById('next-1-numeric');
+    let numericBtn = document.getElementById('numeric');
     if (numericBtn) {
         numericBtn.addEventListener('click', function() {
             trackingMethod = TrackingMethodEnum.Numeric;
@@ -114,8 +101,8 @@ function trackingMethodDetails() {
         details.pop();
     } else if (trackingMethod == 'numeric') {
         details = [
-            document.getElementById('newHabitForm-numeric-amount').value,
-            document.getElementById('newHabitForm-numeric-period').selectedOptions[0].value
+            document.getElementById('numericHowMany').value,
+            document.getElementById('numericHowOften').selectedOptions[0].value
         ]
     }
     return details;
@@ -132,9 +119,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('input[name="frequency"]').forEach((elem) => {
           elem.addEventListener("change", function(event) {
             let item = event.target.value;
-            let daysDiv = document.getElementById('days')
-            let sometimesDiv = document.querySelector('.newHabitForm-sometimes');
-            let repeatDiv = document.querySelector('.newHabitForm-repeat');
+            const daysDiv = document.getElementById('weekDays')
+            const sometimesDiv = document.getElementById('sometimesDetailsContainer');
+            const repeatDiv = document.getElementById('repeatDetailsContainer');
 
             let choice = event.target.value;
 
@@ -152,13 +139,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     repeatDiv.classList.remove('d-block');
                     daysDiv.classList.add('d-block');
                     specificDayRemoveDayBtns();
-                    someDays();
+                    getDaysOfWeek();
                     break;
                 case "specificDay":
                     console.log("jakiś dzień");
                     daysDiv.classList.remove('d-block');
                     sometimesDiv.classList.remove('d-block');
                     repeatDiv.classList.remove('d-block');
+                    specificDayDiv.classList.add('d-block');
                     specificDayAddDayBtns();
                     break;
                 case "sometimes":
@@ -188,10 +176,10 @@ document.addEventListener('DOMContentLoaded', function() {
 const everyDayArr = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 // Some day
-const someDaysNodeList = document.querySelectorAll(".newHabitForm-days > input[name='day']");
+const someDaysNodeList = document.querySelectorAll("#weekDays > input[name='day']");
 let someDaysArr = Array.from(someDaysNodeList);
 
-function someDays() {
+function getDaysOfWeek() {
     const days = [];
     someDaysNodeList.forEach(element => element.addEventListener('change', function() {
         if (this.checked) {
@@ -209,10 +197,10 @@ function someDays() {
 }
 
 // Specific day
-const specificDayDiv = document.querySelector('.newHabitForm-specificDay');
+const specificDayDiv = document.getElementById('specificDayBtnsContainer');
 
 function specificDayAddDayBtns() {
-    let dayBtn = [];
+    const dayBtn = [];
 
     for (let i = 0; i < 31; i++) {
         let btn = document.createElement('button');
@@ -251,16 +239,16 @@ function specificDayAddToArr(arr) {
 
 // Time period
 function someTimePerPeriod() {
-    let time = [
-        document.getElementById('newHabitForm-sometimes-amount').value,
-        document.getElementById('newHabitForm-sometimes-period').selectedOptions[0].value
+    const time = [
+        document.getElementById('sometimesHowMany').value,
+        document.getElementById('sometimesHowOften').selectedOptions[0].value
     ]
     return time;
 }
 
 // Repeat
 function getDaysIntervalToRepeat() {
-    let interval = document.getElementById('newHabitForm-repeat-amount').value;
+    const interval = document.getElementById('repeatHowMany').value;
     return interval;
 }
 
@@ -306,8 +294,8 @@ function addHabit(ev) {
 }
 
 document.addEventListener("DOMContentLoaded", ()=> {
-    let el = document.getElementById('submit');
-    if (el) {
-        el.addEventListener('click', addHabit);
+    const addHabitBtn = document.getElementById('submit');
+    if (addHabitBtn) {
+        addHabitBtn.addEventListener('click', addHabit);
     }
 })

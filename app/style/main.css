@@ -6,12 +6,37 @@ ul {
     list-style: none;
 }
 
-.newHabitForm-categoryEvaluation,
-.newHabitForm-numericDetails,
-.newHabitForm-habitFrequency,
-.newHabitForm-days,
-.newHabitForm-sometimes,
-.newHabitForm-repeat {
+.label {
+    display: block;
+}
+
+/* .form {
+
+} */
+
+/* .input {
+
+} */
+
+/* .input--textArea {
+
+} */
+
+/* .paragraph {
+
+} */
+
+/* .btn {
+
+} */
+
+/* .btn--main {
+
+} */
+
+.mainContainer,
+.frequencyContainer__numeric,
+.frequencyContainer__details {
     display: none;
 }
 
